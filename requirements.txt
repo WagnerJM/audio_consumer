@@ -1,0 +1,5 @@
+pika
+sounddevice
+selenium
+scipy
+pytest
