@@ -1,6 +1,7 @@
 # Audio consumer
 
 ## todo
+[] code weiter Dokumentieren
 
 ## About
 Das Programm verbindet sich mit einem RabbitMQ Server und "lauscht" auf ob die Queue mit dem Name __recorder__ füllt ist. Wenn ja, wird der Recorder Prozess ausfgeführt.
