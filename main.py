@@ -24,7 +24,7 @@ if __name__ == '__main__':
     # Creating channel
     channel = connection.channel()
     # Listening on queue=QUEUE_NAME
-    channel.queue.declare(queue=QUEUE_NAME)
+    channel.queue_declare(queue=QUEUE_NAME)
 
     # Callback when message is in the queue
     channel.basic_consume(
