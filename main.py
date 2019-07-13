@@ -1,5 +1,5 @@
 import pika
-from recorder import AudioRecorder
+from recorder.recorder import AudioRecorder
 
 QUEUE_NAME = "recorder"
 HOST = "localhost"
