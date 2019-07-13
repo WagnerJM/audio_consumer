@@ -16,7 +16,7 @@ def callback(ch, method, properties, body):
 
 
 
-def __name__ == '__main__':
+if __name__ == '__main__':
     # Connecting to rabbitMQ Server
     connection = pika.BlockingConnection(
         pika.ConnectionParameters(host=HOST),
