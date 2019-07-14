@@ -11,7 +11,8 @@ def callback(ch, method, properties, body):
     print(f"[x] Task in the queue {body}")
     # Creating instance of AudioRecorder
     recorder = AudioRecorder(body)
-    recorder.create()
+    driver = recorder.prepare_browser(body['settings'])
+    recorder.run(driver, body)
 
 
 

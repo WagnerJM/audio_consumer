@@ -35,8 +35,9 @@ class AudioRecorder:
 
     """
 
-    def __init__(self, track):
-        self.prepare_browser(track['settings'])
+    def __init__(self,track):
+        
+        self.track = track
 
     def prepare_browser(self, settings):
         """
@@ -58,7 +59,7 @@ class AudioRecorder:
         logger.info("Browser created")
         return driver
 
-    def create(self, driver, track):
+    def run(self, driver, track):
         logger.info("Creating track")
         track_id = track['id']
         url = f"https://open.spotify.com/track/{track_id}"
