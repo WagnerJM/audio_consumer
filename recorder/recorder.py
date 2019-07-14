@@ -58,34 +58,34 @@ class AudioRecorder:
         logger.info("Browser created")
         return driver
 
-        def create(self, driver, track):
-            logger.info("Creating track")
-            track_id = track['id']
-            url = f"https://open.spotify.com/track/{track_id}"
-            fs = track['settings']['framesize']
-            seconds = int(track['duration_ms'] / 1000)
+    def create(self, driver, track):
+        logger.info("Creating track")
+        track_id = track['id']
+        url = f"https://open.spotify.com/track/{track_id}"
+        fs = track['settings']['framesize']
+        seconds = int(track['duration_ms'] / 1000)
 
 
-            driver.get(url)
-            logger.info("URL started")
+        driver.get(url)
+        logger.info("URL started")
             
-            driver.find_element_by_css_selector("button.btn.btn-green").click()
+        driver.find_element_by_css_selector("button.btn.btn-green").click()
             
-            logger.info("recording")
-            driver.find_element_by_css_selector("button.btn.btn-green").click()
-            recording = sd.rec(int(fs * seconds), samplerate=fs, channels=2, blocking=True)
-            driver.find_element_by_css_selector("button.btn.btn-green").click()
+        logger.info("recording")
+        driver.find_element_by_css_selector("button.btn.btn-green").click()
+        recording = sd.rec(int(fs * seconds), samplerate=fs, channels=2, blocking=True)
+        driver.find_element_by_css_selector("button.btn.btn-green").click()
 
-            logger.info("done")
-            driver.quit()
-            logger.info("saving file")
+        logger.info("done")
+        driver.quit()
+        logger.info("saving file")
             
-            try:
-                write(f"/media/festplatte/public/recordings/input/{track['trackname']}.wav", fs, recording)
-                logger.info("File saved")
-                return True
-            except Exception as e:
-                logger.error("File could not be created")
-                logger.error(e)
+        try:
+            write(f"/media/festplatte/public/recordings/input/{track['trackname']}.wav", fs, recording)
+            logger.info("File saved")
+            return True
+        except Exception as e:
+            logger.error("File could not be created")
+            logger.error(e)
                 
 
