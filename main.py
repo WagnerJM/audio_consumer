@@ -1,5 +1,6 @@
 import pika
 from recorder.recorder import AudioRecorder
+import json
 
 QUEUE_NAME = "recorder"
 HOST = "localhost"
@@ -8,6 +9,7 @@ def callback(ch, method, properties, body):
     """
     Callback function for consuming the queue
     """
+    body = json.loads(body)
     print(f"[x] Task in the queue {body}")
     # Creating instance of AudioRecorder
     recorder = AudioRecorder(body)
