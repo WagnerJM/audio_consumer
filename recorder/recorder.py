@@ -12,8 +12,8 @@ logger = logging.getLogger(name)
 # Create handlers
 c_handler = logging.StreamHandler()
 f_handler = logging.FileHandler(f'/media/festplatte/public/logs/{name}.log')
-c_handler.setLevel(logging.INFO)
-f_handler.setLevel(logging.INFO)
+c_handler.setLevel(logging.DEBUG)
+f_handler.setLevel(logging.DEBUG)
 
 # Create formatters and add it to handlers
 c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
