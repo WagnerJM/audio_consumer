@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import sounddevice as sd
 from scipy.io.wavfile import write
-
+from pydub import AudioSegment 
 import logging
 
 # Create a custom logger
@@ -84,6 +84,8 @@ class AudioRecorder:
         try:
             write(f"/media/festplatte/public/recordings/input/{track['trackname']}.wav", fs, recording)
             logger.info("File saved")
+            wave_file = AudioSegment.from_wave(f"/media/festplatte/public/recordings/input/{track['trackname']}.wave")
+            wave_file.export(f"/media/festplatte/public/recordings/output/{track['trackname']}.mp3", format="mp3")
             return True
         except Exception as e:
             logger.error("File could not be created")
