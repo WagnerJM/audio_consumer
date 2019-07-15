@@ -84,7 +84,7 @@ class AudioRecorder:
         try:
             write(f"/media/festplatte/public/recordings/input/{track['trackname']}.wav", fs, recording)
             logger.info("File saved")
-            wave_file = AudioSegment.from_wave(f"/media/festplatte/public/recordings/input/{track['trackname']}.wave")
+            wave_file = AudioSegment.from_wav(f"/media/festplatte/public/recordings/input/{track['trackname']}.wave")
             wave_file.export(f"/media/festplatte/public/recordings/output/{track['trackname']}.mp3", format="mp3")
             return True
         except Exception as e:
